@@ -35,16 +35,25 @@ Again just making minor change in the README file to generate build 2 in jenkins
 
 # Deliverable - 4 (Automating CI/CD Pipeline)
 
-# 1. Description of CI/CD Pipeline
-This repository uses GitHub Actions to automate the integration and deployment process. On every push or pull request merge to the `main` branch, the workflow:
-- Builds the application's Docker image.
-- Runs basic tests.
-- Pushes the built image to Docker Hub.
-- Automatically deploys the updated container to an AWS EC2 instance via SSH.
+This repository demonstrates a fully automated CI/CD pipeline using GitHub Actions. On every push to main or merge of a Pull Request, the pipeline automatically builds Docker images, pushes them to Docker Hub, and deploys the updated containers to an AWS EC2 instance via SSH.
 
-# 2. Instructions to Run and Deploy the App
+Repository: AyeshaShah123/Paw_Track_System-
 
-## Local Deployment using Docker:
-1. Pull the Docker image from Docker Hub:
-   ```bash
-   docker pull <ayeshashah123/paw_track_system>:latest
+Docker Hub Repository: ayeshashah123/paw_track_system
+
+AWS EC2 Target IP: 3.26.240.168
+
+🔗 Live Application Endpoints
+
+Frontend UI (Port 8081): http://3.26.240.168:8081
+
+Backend API (Port 5000): http://3.26.240.168:5000
+
+⚙️ CI/CD Pipeline Architecture (ci-cd.yml)
+
+The pipeline defined in .github/workflows/ci-cd.yml executes two sequential jobs upon a push to main or a closed/merged pull_request:
+
+┌────────────────────────┐      ┌────────────────────────┐      ┌────────────────────────┐
+│  Git Push / PR Merge   │ ───> │     build-and-push     │ ───> │         deploy         │
+│     (main branch)      │      │ (Builds & Pushes Hub)  │      │   (Deploys to EC2)     │
+└────────────────────────┘      └────────────────────────┘      └────────────────────────┘
