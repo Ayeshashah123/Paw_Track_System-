@@ -35,17 +35,47 @@ Again just making minor change in the README file to generate build 2 in jenkins
 
 # Deliverable - 4 (Automating CI/CD Pipeline)
 
-1. Description of CI/CD Pipeline
-This project utilizes a GitHub Actions CI/CD pipeline configured at `.github/workflows/ci-cd.yml`. 
-**Trigger**: The pipeline runs automatically when code is pushed to the `main` branch or when a pull request is merged.
-**Build & Push:** It authenticates with Docker Hub using secure secrets, builds the frontend and backend Docker images, and pushes them directly to Docker Hub (`urbanaseem`).
-**Deployment:** It securely connects to our AWS EC2 instance (`Jenkins-Server`) via SSH, pulls the updated images, and restarts the containers automatically[cite: 2].
+This project demonstrates the implementation of an automated CI/CD pipeline using GitHub Actions and Docker.
 
-2. Instructions to Run and Deploy the App
-**Local Run using Docker Compose:**
-  docker-compose up --build -d
-**Run Containers Manually from Docker Hub:**
-  docker pull urbanaseem/paw-track-backend:latest
-  docker pull urbanaseem/paw-track-frontend:latest
-  docker run -d --name paw-backend -p 5000:5000 urbanaseem/paw-track-backend:latest
-  docker run -d --name paw-frontend -p 80:80 urbanaseem/paw-track-frontend:latest
+CI/CD Pipeline
+PawTrack uses GitHub Actions to automate Docker image building and deployment.
+
+The pipeline automatically builds the Docker image whenever code is pushed to the main branch. The image is then pushed to Docker Hub.
+
+Technologies Used:
+
+GitHub
+
+GitHub Actions
+
+Docker
+
+Docker Hub
+
+AWS EC2 (optional deployment)
+
+How to Run the Application
+
+Build Docker Image
+
+docker build -t .
+
+Run Docker Container
+
+docker run -d -p 8080:80 
+
+Deployment
+
+The application is deployed using Docker containers. GitHub Actions automates the build and image publishing process.
+
+Changelog
+
+Initial project setup
+
+Added Docker support
+
+Added GitHub Actions CI/CD workflow
+
+Automated Docker Hub image publishing
+
+Added deployment automation
