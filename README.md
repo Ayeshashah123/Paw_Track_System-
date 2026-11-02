@@ -35,47 +35,16 @@ Again just making minor change in the README file to generate build 2 in jenkins
 
 # Deliverable - 4 (Automating CI/CD Pipeline)
 
-This project demonstrates the implementation of an automated CI/CD pipeline using GitHub Actions and Docker.
+# 1. Description of CI/CD Pipeline
+This repository uses GitHub Actions to automate the integration and deployment process. On every push or pull request merge to the `main` branch, the workflow:
+- Builds the application's Docker image.
+- Runs basic tests.
+- Pushes the built image to Docker Hub.
+- Automatically deploys the updated container to an AWS EC2 instance via SSH.
 
-CI/CD Pipeline
-PawTrack uses GitHub Actions to automate Docker image building and deployment.
+# 2. Instructions to Run and Deploy the App
 
-The pipeline automatically builds the Docker image whenever code is pushed to the main branch. The image is then pushed to Docker Hub.
-
-Technologies Used:
-
-GitHub
-
-GitHub Actions
-
-Docker
-
-Docker Hub
-
-AWS EC2 (optional deployment)
-
-How to Run the Application
-
-Build Docker Image
-
-docker build -t .
-
-Run Docker Container
-
-docker run -d -p 8080:80 
-
-Deployment
-
-The application is deployed using Docker containers. GitHub Actions automates the build and image publishing process.
-
-Changelog
-
-Initial project setup
-
-Added Docker support
-
-Added GitHub Actions CI/CD workflow
-
-Automated Docker Hub image publishing
-
-Added deployment automation
+## Local Deployment using Docker:
+1. Pull the Docker image from Docker Hub:
+   ```bash
+   docker pull <ayeshashah123/paw_track_system>:latest
